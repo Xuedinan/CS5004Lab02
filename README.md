@@ -6,28 +6,26 @@ Semester: 2024 Spring
 
 ### My submission includes following directory/files
 
-1. Color Class, ColorTests Class
+1. Color Class, ColorTests Class //TO BE UPDATE
    -  stored in src/ColorPackage folder
    -  Include Driver Class
    -  Include Extension practices
      
-2. Pixel, PixelTest Class
+2. Pixel, PixelTest Class //TO BE UPDATE
    - stored in src/PixelPackage folder
    - Include Driver Class
    - Include Extension practices
   
-   ![image](https://github.com/Xuedinan/CS5004Lab01/assets/144306521/b822023c-bb41-42d4-b609-7cf004b77f0d)
-
      
 ## Writing assignment
 
 :star:  **ICE**
   - I followed the inClass video to build Fighter and it's test classes, below Screenshots are for Fighter, FighterTest Classes
-  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/44c09641-a828-4790-a948-4974b0fc9ac4)
-  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/3ddff86d-3eae-47b9-ad95-4723d84b0d6e)
+   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/44c09641-a828-4790-a948-4974b0fc9ac4)
+   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/3ddff86d-3eae-47b9-ad95-4723d84b0d6e)
 
   - I built test classes first for Employee and Paycheck classes
-  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/6d41d9ee-fa19-47ba-8e2a-4e6fb73526da)
+   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/6d41d9ee-fa19-47ba-8e2a-4e6fb73526da)
 
 :star:  **Weekly report**
 
