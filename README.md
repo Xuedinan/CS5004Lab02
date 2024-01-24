@@ -21,11 +21,11 @@ Semester: 2024 Spring
 
 :star:  **ICE**
   - I followed the inClass video to build Fighter and it's test classes, below Screenshots are for Fighter, FighterTest Classes
-   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/44c09641-a828-4790-a948-4974b0fc9ac4)
-   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/3ddff86d-3eae-47b9-ad95-4723d84b0d6e)
+  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/44c09641-a828-4790-a948-4974b0fc9ac4)
+  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/3ddff86d-3eae-47b9-ad95-4723d84b0d6e)
 
   - I built test classes first for Employee and Paycheck classes
-   ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/6d41d9ee-fa19-47ba-8e2a-4e6fb73526da)
+  - ![image](https://github.com/Xuedinan/CS5004Lab02/assets/144306521/6d41d9ee-fa19-47ba-8e2a-4e6fb73526da)
 
 :star:  **Weekly report**
 
