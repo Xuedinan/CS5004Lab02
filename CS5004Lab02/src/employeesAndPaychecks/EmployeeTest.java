@@ -60,47 +60,54 @@ public class EmployeeTest {
 		assertEquals(0,e2.getHoursWorked(), 0.001);
 	}
 	
-	/*
 	// Get weekly pay tests
-	@Test //TODO5
+	@Test
 	public void testGetWeeklyPay() {
+		e1.addHoursWorked(40);
 		Paychecks pe1 = e1.getWeeklyPay();
+		
+		e2.addHoursWorked(100);
 		Paychecks pe2 = e2.getWeeklyPay();
 		
-		assertEquals("Jack",pe1.getName());
-		assertEquals(15.0,pe2.getPayRate());
-		assertEquals(0,e1.getHoursWorked());
-		assertEquals(0,e2.getHoursWorked());
+		assertEquals(1200, pe1.getTotalPay(), 0.001);
+		assertEquals(40, pe1.getHoursWorked(), 0.001);
+		
+		assertEquals(1950, pe2.getTotalPay(), 0.001);
+		assertEquals(100, pe2.getHoursWorked(), 0.001);
 	}
 	
-	@Test //TODO6
-	public void testGetWeeklyPayParameter() {
+
+	@Test
+	public void testGetWeeklyPayParameter() throws Exception {
 		
 		Paychecks p1 = new Paychecks();
 		Paychecks p2 = new Paychecks();
+		Paychecks p3 = new Paychecks();		
 		
-		Paychecks pe1 = e1.getWeeklyPay(p1);
-		Paychecks pe1 = e2.getWeeklyPay(p2);
+		Paychecks pye1 = e1.getWeeklyPay(p1);
+		Paychecks pye2 = e2.getWeeklyPay(p2);
 		
-		assertEquals("Jack",pe1.getName());
-		assertEquals(15.0,pe2.getPayRate());
-		assertEquals(0,e1.getHoursWorked());
-		assertEquals(0,e2.getHoursWorked());
+		assertEquals("Jack", pye1.getName());
+		assertEquals(15.0, pye2.getPayRate(), 0.001);
+		assertEquals(0, e1.getHoursWorked(), 0.001);
+		assertEquals(0, e2.getHoursWorked(), 0.001);
+		
+		// test reset hours worked after assigned to blank paycheck
+		e3.addHoursWorked(100);
+		assertEquals(100,e3.getHoursWorked(), 0.001);
+		
+		Paychecks pye3 = e3.getWeeklyPay(p3);
+		assertEquals(0, e3.getHoursWorked(), 0.001);
 	}
-	
+
 	// Pay raise tests
-	@Test //TODO7
-	public void testGetWeeklyPay() {
+	@Test
+	public void testPayRaise() {
 		e1.payRaise(1.1);
-		e1.payRaise(1.2);
+		e2.payRaise(1.2);
 		
-		assertEquals(33,e1.getPayRate());
-		assertEquals(18,e2.getPayRate());
+		assertEquals(33, e1.getPayRate(), 0.001);
+		assertEquals(18, e2.getPayRate(), 0.001);
 	}
-*/	
-	// Total employees number test
-	@Test //TODO7
-	public void testGetWeeklyPay() {
-		assertEquals(3, Employee.getNumEmployees());
-	}
+
 }

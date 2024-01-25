@@ -77,26 +77,44 @@ public class Employee {
 		this.hoursWorked = 0;
 	}
 	
+	
+	
+	// generate paycheck for objective then reset hours worked
 	public Paychecks getWeeklyPay() {
 		
-		return null;
+		Paychecks p = new Paychecks(this.name, this.payRate, this.emID, this.hoursWorked);
+		resetHoursWorked();
+		
+		return p;
 	}
 	
-	public Paychecks getWeeklyPay(Paychecks Paychecks) {
+	
+	//Receive a "blank" paycheck and assign it to this employee then reset hours
+	public Paychecks getWeeklyPay(Paychecks paychecks)throws Exception {
 		
-		return null;
+	try {
+		paychecks.name = this.name;
+		paychecks.payRate = this.payRate;
+		paychecks.hoursWorked = this.hoursWorked;
+		
+		resetHoursWorked();
+		
+		return paychecks;
+		}
+	catch(NullPointerException NE) {
+		System.out.println("Receivied invalid paycheck. ");
+		}
+		return paychecks;
 	}
 	
 	public void payRaise(double increaseRate) {
-		
+		this.payRate = this.payRate * increaseRate;
 	}
 	
 	public static int getNumEmployees() {
 		return counter;
 	}
-	
-	
-	
+		
 }	
 
 
