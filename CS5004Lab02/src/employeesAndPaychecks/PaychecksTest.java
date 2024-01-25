@@ -6,56 +6,66 @@ import org.junit.Test;
 
 public class PaychecksTest {
 	
-	Paycheck p1;
-	Paycheck p2;
-	Paycheck p3;
-
+	Employee e5 = new Employee("Sharon", 30.5);
 	
-	@Before
-	public void setUp() {
-		
-		p1 = new Paycheck();
-		p2 = new Paycheck("Lucy", 2, 15, 40);
-		p3 = new Employee(e1);
-		
-	}
+	Paychecks p1 = new Paychecks();
+	Paychecks p2 = new Paychecks("Lucy",25.5, 2, 40.0);
+	Paychecks p3 = new Paychecks(e5);
+	
 	
 	//Getters and setters were requested. Let's check
-	@Test //TODO1
+	@Test
 	public void gettersAndSetters()
 	{
-		assertEquals(0, p1.getHourWorked());
+		assertEquals(0, p1.getHoursWorked(), 0.001);
 		assertEquals("Lucy", p2.getName());
-		assertEquals("Jack", p3.getName());
+		assertEquals("Sharon", p3.getName());
 	}
 	
 	//load check test
-	@Test //TODO2
-	public void testLoadCheck()
+	@Test
+	public void testLoadCheck() throws Exception
 	{
-		p1.loadCheck(e3);
+		p1.loadCheck(e5);
 		
-		assertEquals("Tom", p1.getName());
-		assertEquals(20, p1.getPayRate());
-		assertEquals(3, p1.getEmId());
+		assertEquals("Sharon", p1.getName());
+		assertEquals(30.5, p1.getPayRate(), 0.001);
+		assertEquals(0, p1.getHoursWorked(), 0.001);
 	}
 	
 	//Total pay test
-	@Test //TODO3
+	@Test
 	public void testTotalPay()
 	{
-		e1.addHoursWorked(100)
+		e5.addHoursWorked(100);
+		p3.hoursWorked = e5.getHoursWorked();
 		
-		assertEquals(3000, p1.getTotalPay());
-
+		// 40*30.5 + 60*30.5*1.5
+		assertEquals(3965, p3.getTotalPay(), 0.001);
+		
+		//25.5 * 40
+		assertEquals(1020, p2.getTotalPay(), 0.001);
 	}
 	
-	//toString test
-	@Test //TODO4
-	public void testToString()
+	//Over time test
+	@Test
+	public void testOverTime()
 	{
-		assertEquals("", p1.toString());
+		e5.addHoursWorked(100);
+		p3.hoursWorked = e5.getHoursWorked();
+		
+		assertEquals(60, p3.getOverTime(), 0.001);
+		assertEquals(0, p2.getOverTime(), 0.001);
+	}	
 
-	}
+	
+
+//	//toString test
+//	@Test //TODO4
+//	public void testToString()
+//	{
+//		assertEquals("", p1.toString());
+//
+//	}
 }
 
