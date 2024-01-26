@@ -65,6 +65,63 @@ public class Driver {
 		System.out.printf(employee1 + "\n");
 	}
 	
+/*	
+
+In this program I have functions as below;
+
+Employee --
+
+	- constructors
+	- setters for name, payRate, hours
+	- getters for name, payRate, hours, ID, total employee number
+	- get weekly pay, get weekly pay(paycheck)
+	- payRaise, payDecrease
+	- addHours, resetHours
+	- toString
+
+Paychecks --
+
+	- constructors
+	- load check
+	- helpers for calculation totalPay, overtime
+	- setters for name, payRate, hours, overtime
+	- getters for name, payRate, hours, overtime, totalPay
+	- addHours
+	- toString
+
+So my test case will be based on total pay;
+
+1. Create test objective for each constructor
+	- Employee: 2 arguments, no argument, invalid argument
+	- Paychecks: 4 arguments, no argument, employee argument, invalid argument
+
+2. Add hours
+3. Check total pay
+4. Increase payRate
+5. Check total pay
+6. Decrease payRate
+7. Check total pay
+8. Add overtime
+9. Check total pay
+10. Reset hours
+11. Add hours < 40 and add overtime, check conflict
+12. Check total pay
+13. Check total employee numbers
+14. Check total paychecks for this week
+	
+*/	
+	public static void myTestCase() throws Exception{
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
 	
 	public static void main(String[] args) throws Exception {
 		

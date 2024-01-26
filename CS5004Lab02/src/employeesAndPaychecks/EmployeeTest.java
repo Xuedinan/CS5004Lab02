@@ -17,6 +17,8 @@ public class EmployeeTest {
 			e1 = new Employee("Jack", 30.0);
 			e2 = new Employee("Lucy", 15.0);
 			e3 = new Employee("Tom", 20.0);
+			
+			Employee test = new Employee("Negative pay rate", -1);
 			}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -35,6 +37,30 @@ public class EmployeeTest {
 		assertEquals(40.0,e1.getPayRate(), 0.001);
 	}
 	
+	
+	@Test
+	public void testSetPayRate() throws Exception
+	{	
+		e1.setPayRate(40);
+		e2.setPayRate(-1);
+	
+		assertEquals(40, e1.getPayRate(), 0.001);
+		assertEquals(15, e2.getPayRate(), 0.001);
+	}
+	
+	
+	@Test
+	public void testSetHoursWorked() throws Exception
+	{	
+		e1.setHoursWorked(300);
+		e2.setHoursWorked(-1);
+		
+		assertEquals(300, e1.getHoursWorked(), 0.001);
+		assertEquals(0, e2.getHoursWorked(), 0.001);
+	}
+	
+	
+	
 	// Constructor test
 	@Test
 	public void testConstructor() {
@@ -51,6 +77,7 @@ public class EmployeeTest {
 		e1.addHoursWorked(100);
 		e2.addHoursWorked(50);
 		e3.addHoursWorked(30);
+		e3.addHoursWorked(-1);
 		
 		assertEquals(100,e1.getHoursWorked(), 0.001);
 		assertEquals(50,e2.getHoursWorked(), 0.001);
@@ -59,7 +86,7 @@ public class EmployeeTest {
 	
 
 	// Reset hours worked test
-	@Test //TODO4
+	@Test
 	public void testRestHoursWorked() throws Exception {
 		e1.addHoursWorked(100);
 		e2.addHoursWorked(50);
@@ -119,6 +146,7 @@ public class EmployeeTest {
 	public void testPayRaise() {
 		e1.payRaise(1.1);
 		e2.payRaise(1.2);
+		e2.payRaise(-1);
 		
 		assertEquals(33, e1.getPayRate(), 0.001);
 		assertEquals(18, e2.getPayRate(), 0.001);
@@ -129,6 +157,7 @@ public class EmployeeTest {
 	public void testPayDerease() {
 		e1.payDecrease(0.1);
 		e2.payDecrease(0.2);
+		e2.payDecrease(-1);
 		
 		assertEquals(27, e1.getPayRate(), 0.001);
 		assertEquals(12, e2.getPayRate(), 0.001);

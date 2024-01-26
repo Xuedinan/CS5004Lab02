@@ -98,7 +98,7 @@ public class Paychecks {
 		
 		double otHours = 0;
 	try {
-		if(hoursWorked > 40) {
+		if(hoursWorked >= 40) {
 			otHours = hoursWorked - 40.0;
 			return otHours;
 		}
@@ -173,7 +173,39 @@ public class Paychecks {
 	
 	// set overtime hours
 	public void setOverTime(double overTime) {
-		this.overTime = overTime;
+	
+	try {
+		if(overTime < 0) {
+			throw new IllegalArgumentException();
+		}
+		else if(hoursWorked < 40) {
+			this.overTime = 0;
+		}
+		else {
+			this.overTime = overTime;
+			this.hoursWorked = 40 + overTime;
+			}
+		}
+	catch(IllegalArgumentException E) {
+		System.out.println("Set overtime hours must be greater than 0 \n" + E + "\n");
+		}
+	}
+	
+	
+	// add hours worked
+	public void addHoursWorked(double hours)throws Exception {
+		
+	try {	
+		if (hours <= 0){	
+			throw new IllegalArgumentException();
+		}
+		else {
+		this.hoursWorked = hours + this.hoursWorked;
+			}
+		}
+	catch(IllegalArgumentException iE) {
+		System.out.println("Added worked hours must greater than 0. \n" + iE + "\n");
+		}
 	}
 	
 	// print out paycheck information
