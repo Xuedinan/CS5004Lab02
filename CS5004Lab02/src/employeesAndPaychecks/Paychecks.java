@@ -5,10 +5,10 @@ public class Paychecks {
 	String name;
 	double payRate;
 	double hoursWorked;
+	int emID;
 	
 	double totalPay;
 	double overTime;
-
 	
 	
 	// constructor with 4 arguments
@@ -19,12 +19,13 @@ public class Paychecks {
 		this.name = name;
 		this.payRate = payRate;
 		this.hoursWorked = hoursWorked;
+		this.emID = emID;
 		
 		this.overTime = calOverTime(hoursWorked);
 		this.totalPay = calTotalPay(hoursWorked);
 		}
-	catch(IllegalArgumentException e) {
-			System.out.println("Input for employee's information is invalid");
+	catch(Exception e) {
+			System.out.println("Input for employee's information is invalid\n"+ e + "\n");
 		}
 	}
 
@@ -43,8 +44,8 @@ public class Paychecks {
 			this.overTime = calOverTime(hoursWorked);
 			this.totalPay = calTotalPay(hoursWorked);
 		}
-	catch(IllegalArgumentException E) {
-			System.out.println("Extracted employee's information is invalid");
+	catch(Exception E) {
+			System.out.println("Extracted employee's information is invalid" + E + "\n");
 		}
 	}
 	
@@ -58,8 +59,8 @@ public class Paychecks {
 		this.payRate = e.getPayRate();
 		this.hoursWorked = e.getHoursWorked();
 		}
-	catch(IllegalArgumentException er) {
-			System.out.println("This is invlaid employee information");
+	catch(NullPointerException er) {
+			System.out.println("Received invalid employee information when try to load check. \n" + er + "\n");
 		}
 	}
 
@@ -70,6 +71,7 @@ public class Paychecks {
 		
 		double pay = 0;
 		
+	try {
 		if(hours > 40) {
 			pay = (hours - 40) * 1.5 * payRate + 40 * payRate;
 			return pay;
@@ -84,13 +86,18 @@ public class Paychecks {
 			return -999.99;
 			}
 		}
+	catch(IllegalArgumentException iE) {
+		throw new IllegalArgumentException("Given worked hours is wrong for calcualting total pay " + iE + "\n");
+		}
+	}
+	
 	
 	// calculate overtime
 	
 	private double calOverTime(double hours) {
 		
 		double otHours = 0;
-		
+	try {
 		if(hoursWorked > 40) {
 			otHours = hoursWorked - 40.0;
 			return otHours;
@@ -99,9 +106,13 @@ public class Paychecks {
 			return otHours; 
 		}
 	}
+	catch(IllegalArgumentException iE) {
+		throw new IllegalArgumentException("Given worked hours is wrong for calcualting overtime hours " + iE + "\n");
+		}
+	}
+	
 	
 	// getters and setters
-	
 
 	public String getName() {
 		return name;
@@ -126,18 +137,30 @@ public class Paychecks {
 	public void setHoursWorked(double hoursWorked) {
 		this.hoursWorked = hoursWorked;
 	}
-
+	
+	
+	// get total pay by calculation method
 	public double getTotalPay() {
 		
 		return totalPay = calTotalPay(hoursWorked);		
 	}
-
+		
+	// get overtime hours by calculation method
 	public double getOverTime() {
 		return overTime = calOverTime(hoursWorked);
 	}
-
+	
+	// set overtime hours
 	public void setOverTime(double overTime) {
 		this.overTime = overTime;
+	}
+	
+	// print out paycheck information
+	@Override
+	public String toString() {
+		
+		System.out.println("Employee " + name+ "'s Paycheck. ID# : " + emID + "\nPay Rate: $" + payRate + "\nWorked Hours: " + hoursWorked + "\nOvertime hours: " + overTime + "\nTotal Pay: $" + totalPay + "\n");
+		return "Employee " + name+ "'s Paycheck. ID# : " + emID + "\nPay Rate: $" + payRate + "\nWorked Hours: " + hoursWorked + "\nOvertime hours: " + overTime + "\nTotal Pay: $" + totalPay + "\n";
 	}
 
 }

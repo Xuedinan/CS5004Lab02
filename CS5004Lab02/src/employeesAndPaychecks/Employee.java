@@ -7,21 +7,33 @@ public class Employee {
 	private double hoursWorked;
 	private int emID;
 	
-	private static int counter = 0;
+	// first employee ID is 1
+	private static int counter = 1;
 	
 	
 	
-	public Employee(String name, double payRate) {
-
+	public Employee(String name, double payRate)throws Exception {
+	
+	try {
+		
+		if(payRate < 0) {
+			throw new IllegalArgumentException();
+		}
 		this.name = name;
 		this.payRate = payRate;
 		this.hoursWorked = 0;
 		emID = counter;
-		
 		counter++;
+		}
+
+	catch(IllegalArgumentException e) {
+		System.out.println("Provided employee name or pay rate is invalid. \n" + e + "\n");
+		}
 	}
+	
+	public Employee() {}
 
-
+	// getters and setters
 	public String getName() {
 		return name;
 	}
@@ -63,16 +75,23 @@ public class Employee {
 	}
 
 	
-	public void addHoursWorked(double hours) {
+	// add worked hours, input must greater than 0
+	public void addHoursWorked(double hours)throws Exception {
 		
-		if (hours > 0){
-		this.hoursWorked = hours + this.hoursWorked;
+	try {	
+		if (hours <= 0){	
+			throw new IllegalArgumentException();
 		}
 		else {
-			System.out.println("Added worked hours must greater than 0. ");
+		this.hoursWorked = hours + this.hoursWorked;
+			}
 		}
-	}	
+	catch(IllegalArgumentException iE) {
+		System.out.println("Added worked hours must greater than 0. \n" + iE + "\n");
+		}
+	}
 	
+	// reset worked hours to 0
 	public void resetHoursWorked() {
 		this.hoursWorked = 0;
 	}
@@ -102,19 +121,56 @@ public class Employee {
 		return paychecks;
 		}
 	catch(NullPointerException NE) {
-		System.out.println("Receivied invalid paycheck. ");
+		System.out.println("Receivied invalid paycheck in getWeeklyPay. \n" + NE + "\n");
 		}
 		return paychecks;
 	}
 	
+	
+	// method to increase pay rate
 	public void payRaise(double increaseRate) {
+	
+	try {	
+		if(increaseRate < 1) {
+			throw new IllegalArgumentException();
+			}
 		this.payRate = this.payRate * increaseRate;
+
+		}
+	catch(IllegalArgumentException iE) {
+			System.out.println("Increase rate must be greater than 1. e.g. Increase rate = 1.2 means increase rate by 20%.\n" + iE + "\n");
+		}
 	}
 	
+	
+	// method to decrease pay rate 
+	public void payDecrease(double decreaseRate) {
+	
+	try {	
+		if(decreaseRate < 0 || decreaseRate >= 1) {
+			throw new IllegalArgumentException();
+			}
+		this.payRate = this.payRate * (1 - decreaseRate);
+		}
+	catch(IllegalArgumentException iE) {
+		System.out.println("Increase rate must be greater than 0 and less than 1. e.g. Decrease rate = 0.2 means decrease rate by 20%. \n" + iE + "\n");
+		}
+	}
+	
+	// get how many employees are created in total
 	public static int getNumEmployees() {
 		return counter;
 	}
 		
+	
+	// print out employee information
+	@Override
+	public String toString() {
+		
+		System.out.println("Employee Name: " + name + "\nEmployee Pay Rate: $" + payRate + "\nEmployee's Hours this week: " + hoursWorked + "\nEmployee ID: " + emID + "\n");
+		return "Employee Name: " + name + "\nEmployee Pay Rate: $" + payRate + "\nEmployee's Hours this week: " + hoursWorked + "\nEmployee ID: " + emID + "\n";
+	}
+	
 }	
 
 

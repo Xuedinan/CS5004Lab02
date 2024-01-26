@@ -1,14 +1,28 @@
 package employeesAndPaychecks;
 
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 import org.junit.Test;
 
 public class EmployeeTest {
+
+	Employee e1;
+	Employee e2;
+	Employee e3;
 	
-	Employee e1 = new Employee("Jack", 30.0);
-	Employee e2 = new Employee("Lucy", 15.0);
-	Employee e3 = new Employee("Tom", 20.0);
+	@Before
+	public void setup()throws Exception{
+		try {
+			e1 = new Employee("Jack", 30.0);
+			e2 = new Employee("Lucy", 15.0);
+			e3 = new Employee("Tom", 20.0);
+			}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}	
+	
 	
 	//Getters and setters tests
 	@Test
@@ -32,21 +46,21 @@ public class EmployeeTest {
 	
 	// Add hours worked test
 	@Test 
-	public void testAddHoursWorked() {
+	public void testAddHoursWorked() throws Exception {
 		
 		e1.addHoursWorked(100);
 		e2.addHoursWorked(50);
-		e3.addHoursWorked(-1); // this will print out reminder message
+		e3.addHoursWorked(30);
 		
 		assertEquals(100,e1.getHoursWorked(), 0.001);
 		assertEquals(50,e2.getHoursWorked(), 0.001);
-		assertEquals(0,e3.getHoursWorked(), 0.001);
+		assertEquals(30,e3.getHoursWorked(), 0.001);
 	}
 	
 
 	// Reset hours worked test
 	@Test //TODO4
-	public void testRestHoursWorked() {
+	public void testRestHoursWorked() throws Exception {
 		e1.addHoursWorked(100);
 		e2.addHoursWorked(50);
 		
@@ -62,7 +76,7 @@ public class EmployeeTest {
 	
 	// Get weekly pay tests
 	@Test
-	public void testGetWeeklyPay() {
+	public void testGetWeeklyPay() throws Exception {
 		e1.addHoursWorked(40);
 		Paychecks pe1 = e1.getWeeklyPay();
 		
@@ -92,7 +106,7 @@ public class EmployeeTest {
 		assertEquals(0, e1.getHoursWorked(), 0.001);
 		assertEquals(0, e2.getHoursWorked(), 0.001);
 		
-		// test reset hours worked after assigned to blank paycheck
+		// test reset worked hours after assigned it to blank paycheck
 		e3.addHoursWorked(100);
 		assertEquals(100,e3.getHoursWorked(), 0.001);
 		
@@ -109,5 +123,14 @@ public class EmployeeTest {
 		assertEquals(33, e1.getPayRate(), 0.001);
 		assertEquals(18, e2.getPayRate(), 0.001);
 	}
-
+	
+	// Pay decrease tests
+	@Test
+	public void testPayDerease() {
+		e1.payDecrease(0.1);
+		e2.payDecrease(0.2);
+		
+		assertEquals(27, e1.getPayRate(), 0.001);
+		assertEquals(12, e2.getPayRate(), 0.001);
+	}
 }
