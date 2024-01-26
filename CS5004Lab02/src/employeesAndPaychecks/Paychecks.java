@@ -125,19 +125,40 @@ public class Paychecks {
 	public double getPayRate() {
 		return payRate;
 	}
-
+	
+	// set pay rate must be greater than 0
 	public void setPayRate(double payRate) {
-		this.payRate = payRate;
-	}
+		
+		try {
+			if(payRate < 0) {
+				throw new IllegalArgumentException();
+			}
+		
+			this.payRate = payRate;
+			}
+		catch(IllegalArgumentException E) {
+			System.out.println("Set pay rate must be greater than 0 \n" + E + "\n");
+			}
+		}
 
 	public double getHoursWorked() {
 		return hoursWorked;
 	}
 
+	// set worked hours must be greater than 0
 	public void setHoursWorked(double hoursWorked) {
-		this.hoursWorked = hoursWorked;
-	}
 	
+	try {
+		if(hoursWorked < 0) {
+			throw new IllegalArgumentException();
+		}
+	
+		this.hoursWorked = hoursWorked;
+		}
+	catch(IllegalArgumentException E) {
+		System.out.println("Set worked hours must be greater than 0 \n" + E + "\n");
+		}
+	}
 	
 	// get total pay by calculation method
 	public double getTotalPay() {

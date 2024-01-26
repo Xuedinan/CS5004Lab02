@@ -52,10 +52,19 @@ public class Employee {
 
 
 
-	public void setPayRate(double payRate) {
+	public void setPayRate(double payRate)throws Exception {
+	
+	try {
+		if(payRate < 0) {
+			throw new IllegalArgumentException();
+		}
+	
 		this.payRate = payRate;
+		}
+	catch(IllegalArgumentException E) {
+		System.out.println("Set pay rate must be greater than 0 \n" + E + "\n");
+		}
 	}
-
 
 
 	public double getHoursWorked() {
@@ -65,10 +74,18 @@ public class Employee {
 
 
 	public void setHoursWorked(double hoursWorked) {
-		this.hoursWorked = hoursWorked;
-	}
-
-
+		
+		try {
+			if(hoursWorked < 0) {
+				throw new IllegalArgumentException();
+			}
+		
+			this.hoursWorked = hoursWorked;
+			}
+		catch(IllegalArgumentException E) {
+			System.out.println("Set worked hours must be greater than 0 \n" + E + "\n");
+			}
+		}
 
 	public int getEmID() {
 		return emID;

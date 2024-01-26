@@ -26,7 +26,7 @@ public class EmployeeTest {
 	
 	//Getters and setters tests
 	@Test
-	public void gettersAndSetters()
+	public void gettersAndSetters() throws Exception
 	{
 		e1.setPayRate(40.0);
 		e2.setName("Bobby");
