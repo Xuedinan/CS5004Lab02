@@ -33,7 +33,7 @@ Paychecks --
 	- addHours
 	- toString
 
-My test case will be based on total pay;
+My test case will be based on total pay; (In Driver Class)
 
 1. Create test objective for each constructor
 	- Employee: 2 arguments, invalid argument
