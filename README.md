@@ -18,7 +18,7 @@ Employee --
 	- constructors
 	- setters for name, payRate, hours
 	- getters for name, payRate, hours, ID, total employee number
-	- get weekly pay, get weekly pay(paycheck)
+	- get weekly pay, get weekly pay(paycheck), get all paycheck
 	- payRaise, payDecrease
 	- addHours, resetHours
 	- toString
@@ -51,7 +51,7 @@ My test case will be based on total pay; (In Driver Class)
 11. Reset hours
 12. Add hours < 40 and add overtime, check conflict
 13. Check total employee numbers
-14. Check total paychecks for this week
+14. Check total paychecks for this week by Array List
   
      
 ## Writing assignment
