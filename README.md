@@ -6,15 +6,52 @@ Semester: 2024 Spring
 
 ### My submission includes following directory/files
 
-1. Color Class, ColorTests Class //TO BE UPDATE
-   -  stored in src/ColorPackage folder
+1. Employee, Paychecks and test classes
+   -  stored in src/employeesAndPaychecks package
    -  Include Driver Class
    -  Include Extension practices
      
-2. Pixel, PixelTest Class //TO BE UPDATE
-   - stored in src/PixelPackage folder
-   - Include Driver Class
-   - Include Extension practices
+In this program I have functions as below;
+
+Employee --
+
+	- constructors
+	- setters for name, payRate, hours
+	- getters for name, payRate, hours, ID, total employee number
+	- get weekly pay, get weekly pay(paycheck)
+	- payRaise, payDecrease
+	- addHours, resetHours
+	- toString
+
+Paychecks --
+
+	- constructors
+	- load check
+	- helpers for calculation totalPay, overtime
+	- setters for name, payRate, hours, overtime
+	- getters for name, payRate, hours, overtime, totalPay
+	- addHours
+	- toString
+
+My test case will be based on total pay;
+
+1. Create test objective for each constructor
+	- Employee: 2 arguments, invalid argument
+	- Paychecks: 4 arguments, no argument, employee argument, invalid argument
+
+2. Add hours
+3. Check total pay
+4. Increase payRate
+5. Check total pay
+6. Decrease payRate
+7. Check total pay
+8. Get weekly paycheck
+9. Add overtime hours
+10. Check total pay
+11. Reset hours
+12. Add hours < 40 and add overtime, check conflict
+13. Check total employee numbers
+14. Check total paychecks for this week
   
      
 ## Writing assignment
