@@ -6,7 +6,7 @@ Semester: 2024 Spring
 
 ### My submission includes following directory/files
 
-1. Employee, Paychecks and test classes
+- Employee, Paychecks and test classes
    -  stored in src/employeesAndPaychecks package
    -  Include Driver Class
    -  Include Extension practices
