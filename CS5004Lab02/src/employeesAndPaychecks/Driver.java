@@ -1,8 +1,15 @@
 package employeesAndPaychecks;
 
+/*
+Name: Xuedinan Gao
+Semester: Spring 2024
+Assignment: CS5004Lab02
+
+*/
+
 public class Driver {
 	
-	
+	// this is the test case provided by course
 	public static void providedTestCase() throws Exception {
 		//Create three employee objects
 		Employee employee1 = new Employee("John", 20);
@@ -89,10 +96,10 @@ Paychecks --
 	- addHours
 	- toString
 
-So my test case will be based on total pay;
+My test case will be based on total pay;
 
 1. Create test objective for each constructor
-	- Employee: 2 arguments, no argument, invalid argument
+	- Employee: 2 arguments, invalid argument
 	- Paychecks: 4 arguments, no argument, employee argument, invalid argument
 
 2. Add hours
@@ -101,31 +108,92 @@ So my test case will be based on total pay;
 5. Check total pay
 6. Decrease payRate
 7. Check total pay
-8. Add overtime
-9. Check total pay
-10. Reset hours
-11. Add hours < 40 and add overtime, check conflict
-12. Check total pay
+8. Get weekly paycheck
+9. Add overtime hours
+10. Check total pay
+11. Reset hours
+12. Add hours < 40 and add overtime, check conflict
 13. Check total employee numbers
 14. Check total paychecks for this week
 	
 */	
 	public static void myTestCase() throws Exception{
 		
-		
-		
-		
-		
-		
-		
-		
-	}
+	Employee ep1 = new Employee("Oku", 25.5);
+	Employee ep2 = new Employee("Season", 35);
+	Employee teste = new Employee("test", -1);
 	
+	//Constructor with Paychecks(String name, double payRate, int emID, double hoursWorked)
+	Paychecks pc0 = new Paychecks("Tom", 30, 3, 60);
+	Paychecks pc1 = new Paychecks(ep1);
+	Paychecks pc2 = new Paychecks(ep2);
+	Paychecks pc3 = new Paychecks();
+	Paychecks testp = new Paychecks(teste);
+	
+	System.out.println("\n------ Start test -----\nThis is orginal information\n");
+	System.out.printf(ep1 + "\n" + ep2 + "\n");
+		
+	System.out.printf("----- Add hours on Oku and Season -----\n");
+	pc1.addHoursWorked(40);
+	pc2.addHoursWorked(60);
+	System.out.printf(ep1 + "\n" + ep2 + "\n");
+	
+	System.out.printf("----- Get total pay for Oku and Season -----\n");
+	System.out.printf("Oku's total pay: $" + pc1.getTotalPay() + "\n");
+	System.out.printf("Season's total pay: $" + pc2.getTotalPay() + "\n");
+	
+	System.out.printf("\n----- Get weekly paycheck for Oku and Season -----\n");
+	Paychecks ep1pc = ep1.getWeeklyPay();
+	Paychecks ep2pc = ep2.getWeeklyPay();
+	System.out.printf(ep1pc + "\n" + ep2pc + "\n");
+	
+	System.out.printf("----- Increase pay rate for Oku and Season -----\n");
+	ep1.payRaise(1.1);
+	ep2.payRaise(1.5);
+	pc1.payRate = ep1.getPayRate();
+	pc2.payRate = ep2.getPayRate();
+	System.out.printf("Oku's total pay: $" + pc1.getTotalPay() + "\n");
+	System.out.printf("Season's total pay: $" + pc2.getTotalPay() + "\n");
+	
+	System.out.printf("\n----- Decrease pay rate for Oku and Season -----\n");
+	ep1.payDecrease(0.2);
+	ep2.payDecrease(0.5);
+	pc1.payRate = ep1.getPayRate();
+	pc2.payRate = ep2.getPayRate();
+	System.out.printf("Oku's total pay: $" + pc1.getTotalPay() + "\n");
+	System.out.printf("Season's total pay: $" + pc2.getTotalPay() + "\n");
+	
+	System.out.printf("\n----- Current paycheck for Tom -----\n");
+	System.out.printf(pc0 + "\n");
+	
+	System.out.printf("----- Add overtime hours for Tom -----\n");
+	pc0.setOverTime(100);;
+	System.out.printf(pc0 + "\n");
+	
+	System.out.printf("----- Reset hours on Oku and Season -----\n");
+	ep1.resetHoursWorked();
+	ep2.resetHoursWorked();
+	System.out.printf(ep1 + "\n" + ep2 + "\n");
+	
+	System.out.printf("----- Add invalid hours on Oku and Season -----\n");
+	ep1.addHoursWorked(-100);
+	ep2.addHoursWorked(-100);
+	System.out.printf(ep1 + "\n" + ep2 + "\n");
+	
+	System.out.printf("----- We have total %d employees -----\n", Employee.getNumEmployees());
+	System.out.printf("----- We could check employees paychecks by array list -----\n");
+	
+	System.out.println("\nEmployee assigned paycheck Array List is: \n" + "\n" +Employee.getAllPaycheck());
+	}
 	
 	
 	public static void main(String[] args) throws Exception {
 		
-		providedTestCase();
+		//provided test case, all passed
+		// providedTestCase();
+		
+		// my own test case, all passed
+		myTestCase();
 	}
 
 }

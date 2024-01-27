@@ -4,6 +4,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/*
+Name: Xuedinan Gao
+Semester: Spring 2024
+Assignment: CS5004Lab02
+
+*/
 
 public class PaychecksTest {
 	

@@ -1,5 +1,15 @@
 package employeesAndPaychecks;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+Name: Xuedinan Gao
+Semester: Spring 2024
+Assignment: CS5004Lab02
+
+*/
+
 public class Employee {
 	
 	private String name;
@@ -9,6 +19,9 @@ public class Employee {
 	
 	// first employee ID is 1
 	private static int counter = 1;
+	
+	// Array list used to store Paychecks
+	private static List<Paychecks> paycheckStore = new ArrayList<>();
 	
 	
 	
@@ -30,8 +43,6 @@ public class Employee {
 		System.out.println("Provided employee name or pay rate is invalid. \n" + e + "\n");
 		}
 	}
-	
-	public Employee() {}
 
 	// getters and setters
 	public String getName() {
@@ -117,10 +128,11 @@ public class Employee {
 	
 	// generate paycheck for objective then reset hours worked
 	public Paychecks getWeeklyPay() {
-		
+	
 		Paychecks p = new Paychecks(this.name, this.payRate, this.emID, this.hoursWorked);
 		resetHoursWorked();
 		
+		paycheckStore.add(p);
 		return p;
 	}
 	
@@ -140,6 +152,8 @@ public class Employee {
 	catch(NullPointerException NE) {
 		System.out.println("Receivied invalid paycheck in getWeeklyPay. \n" + NE + "\n");
 		}
+		
+		paycheckStore.add(paychecks);
 		return paychecks;
 	}
 	
@@ -179,12 +193,15 @@ public class Employee {
 		return counter;
 	}
 		
-	
+	public static List<Paychecks> getAllPaycheck() {
+		return paycheckStore;
+	}
+		
 	// print out employee information
 	@Override
 	public String toString() {
 		
-		System.out.println("Employee Name: " + name + "\nEmployee Pay Rate: $" + payRate + "\nEmployee's Hours this week: " + hoursWorked + "\nEmployee ID: " + emID + "\n");
+//		System.out.println("Employee Name: " + name + "\nEmployee Pay Rate: $" + payRate + "\nEmployee's Hours this week: " + hoursWorked + "\nEmployee ID: " + emID + "\n");
 		return "Employee Name: " + name + "\nEmployee Pay Rate: $" + payRate + "\nEmployee's Hours this week: " + hoursWorked + "\nEmployee ID: " + emID + "\n";
 	}
 	

@@ -1,5 +1,12 @@
 package employeesAndPaychecks;
 
+/*
+Name: Xuedinan Gao
+Semester: Spring 2024
+Assignment: CS5004Lab02
+
+*/
+
 public class Paychecks {
 	
 	String name;
@@ -162,7 +169,6 @@ public class Paychecks {
 	
 	// get total pay by calculation method
 	public double getTotalPay() {
-		
 		return totalPay = calTotalPay(hoursWorked);		
 	}
 		
@@ -184,6 +190,7 @@ public class Paychecks {
 		else {
 			this.overTime = overTime;
 			this.hoursWorked = 40 + overTime;
+			this.totalPay = calTotalPay(hoursWorked);
 			}
 		}
 	catch(IllegalArgumentException E) {
@@ -201,6 +208,7 @@ public class Paychecks {
 		}
 		else {
 		this.hoursWorked = hours + this.hoursWorked;
+		this.totalPay = calTotalPay(hoursWorked);
 			}
 		}
 	catch(IllegalArgumentException iE) {
@@ -212,7 +220,7 @@ public class Paychecks {
 	@Override
 	public String toString() {
 		
-		System.out.println("Employee " + name+ "'s Paycheck. ID# : " + emID + "\nPay Rate: $" + payRate + "\nWorked Hours: " + hoursWorked + "\nOvertime hours: " + overTime + "\nTotal Pay: $" + totalPay + "\n");
+//		System.out.println("Employee " + name+ "'s Paycheck. ID# : " + emID + "\nPay Rate: $" + payRate + "\nWorked Hours: " + hoursWorked + "\nOvertime hours: " + overTime + "\nTotal Pay: $" + totalPay + "\n");
 		return "Employee " + name+ "'s Paycheck. ID# : " + emID + "\nPay Rate: $" + payRate + "\nWorked Hours: " + hoursWorked + "\nOvertime hours: " + overTime + "\nTotal Pay: $" + totalPay + "\n";
 	}
 
