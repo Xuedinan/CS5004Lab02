@@ -17,10 +17,10 @@ Employee --
 
 	- constructors
 	- setters for name, payRate, hours
-	- getters for name, payRate, hours, ID, total employee number
-	- get weekly pay, get weekly pay(paycheck), get all paycheck
-	- payRaise, payDecrease
-	- addHours, resetHours
+	- getters for name, payRate, hours, ID, total employee number (Extension)
+	- get weekly pay, get weekly pay(paycheck), get all paycheck (Extension)
+	- payRaise, payDecrease (Extension)
+	- addHours, resetHours (Extension)
 	- toString
 
 Paychecks --
@@ -29,11 +29,11 @@ Paychecks --
 	- load check
 	- helpers for calculation totalPay, overtime
 	- setters for name, payRate, hours, overtime
-	- getters for name, payRate, hours, overtime, totalPay
-	- addHours
+	- getters for name, payRate, hours, overtime, totalPay (Extension)
+	- addHours (Extension)
 	- toString
 
-My test case will be based on total pay; (In Driver Class)
+### My test case will be based on total pay; (In Driver Class)
 
 1. Create test objective for each constructor
 	- Employee: 2 arguments, invalid argument
